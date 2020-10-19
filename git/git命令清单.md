@@ -55,4 +55,8 @@ git checkout tags/1.1.4 或 git checkout 1.1.4
 #### 用于生成一个新分支,并切换到该分支
 git checkout -b <newname>
 
+### git rm
+`git rm <filename>`命令用于删除文件，会同暂存区和工作区一同删掉
+`git rm --cached <fileName>`删除文件，会同暂存区删除，工作区保留
+
 
