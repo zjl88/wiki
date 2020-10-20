@@ -56,7 +56,7 @@ git checkout tags/1.1.4 或 git checkout 1.1.4
 git checkout -b <newname>
 
 ### git rm
-`git rm <filename>`命令用于删除文件，会同暂存区和工作区一同删掉
+`git rm <filename>`命令用于删除文件，会同暂存区和工作区一同删掉（手动删除文件，然后git add <filename>，效果与git rm <filename>一样）
 `git rm --cached <fileName>`删除文件，会同暂存区删除，工作区保留
 
 
