@@ -5,7 +5,7 @@
 - hard：改变工作区和暂存区到指定 commit。该参数等同于重置，可能会引起数据损失。git reset --hard等同于git reset --hard HEAD。
 - -p表示键入交互模式，指定暂存区的哪些部分需要撤销。
 ```
-#撤销上一次向暂存区提交的所有文件，不会影响工作区。相当于git reset --mixed head
+#将当前分支回退到head，撤销暂存区，不会影响工作区。相当于git reset --mixed head
 git reset 
 
 #没有任何效果，
@@ -14,10 +14,10 @@ git reset --soft
 #回退到上一个版本，暂存区和工作区不变
 git reset --soft head^ 
 
-#撤销上一次向暂存区的提交的文件，同时撤销工作区的修改。相当于git rest --hard head
+#将当前分支回退到head，撤销暂存区，同时撤销工作区。相当于git rest --hard head
 git reset --hard
 
-#撤销上一次向暂存区提交的指定文件，不会影响工作区。相当于git reset -- <filename> head
+#将指定文件回退到head，撤销暂存区，不会影响工作区。相当于git reset -- <filename> head
 git reset -- <filename>
 
 指定文件回退时，后面跟--<参数>不可用，即：
