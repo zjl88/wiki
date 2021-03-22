@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$Title$</title>
+  <script>
+    sessionStorage.setItem('userName', 'Jack');
+    function clickFun() {
+      window.open('./testSession2.html', '_blank');
+    }
+  </script>
+</head>
+<body>
+<button onclick="clickFun()">window.open打开</button>
+<br>
+<a href="./testSession2.html" target="_blank">a标签跳转</a>
+</body>
+</html>
