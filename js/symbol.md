@@ -66,25 +66,6 @@
   Symbol.keyFor(s2) // undefined
   ```
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #### 用途
 
@@ -156,4 +137,72 @@
   getArea(shapeType.triangle, { width: 100, height: 100 });
   ```
 
-- 
+#### 内置的 Symbol 值
+
+- Symbol.hasInstance
+
+  对象的`Symbol.hasInstance`属性，指向一个内部方法。当其他对象使用`instanceof`运算符，判断是否为该对象的实例时，会调用这个方法。比如，`foo instanceof Foo`在语言内部，实际调用的是`Foo[Symbol.hasInstance](foo)`。
+
+- Symbol.isConcatSpreadable
+
+  对象的`Symbol.isConcatSpreadable`属性等于一个布尔值，表示该对象用于`Array.prototype.concat()`时，是否可以展开。
+
+- Symbol.species
+
+  对象的`Symbol.species`属性，指向一个构造函数。创建衍生对象时，会使用该属性。
+
+```javascript
+// class MyArray extends Array {
+//     static [Symbol.species] = Array;
+// }
+
+class MyArray extends Array {
+    static get [Symbol.species]() { return Array; }
+}
+const a = new MyArray();
+const b = a.map(x => x);
+
+b instanceof MyArray // false
+b instanceof Array // true
+```
+
+- Symbol.match(暂不理解)
+
+- Symbol.replace(暂不理解)
+
+- Symbol.search(暂不理解)
+
+- Symbol.split (暂不理解)
+
+- Symbol.iterator（看完iterator再回来看）
+
+  对象的`Symbol.iterator`属性，指向该对象的默认遍历器方法。
+
+- Symbol.toPrimitive
+
+  对象的`Symbol.toPrimitive`属性，指向一个方法。该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。
+
+- Symbol.toStringTag
+
+  对象的Symbol.toStringTag属性，指向一个方法。在该对象上面调用Object.prototype.toString方法时，如果这个属性存在，它的返回值会出现在toString方法返回的字符串之中，表示对象的类型。也就是说，这个属性可以用来定制[object Object]或[object Array]中object后面的那个字符串。
+
+  ```javascript
+  // 例一
+  ({[Symbol.toStringTag]: 'Foo'}.toString())
+  // "[object Foo]"
+  
+  // 例二
+  class Collection {
+      get [Symbol.toStringTag]() {
+          return 'xxx';
+      }
+  }
+  let x = new Collection();
+  Object.prototype.toString.call(x) // "[object xxx]"
+  ```
+  
+- Symbol.unscopables(不推荐使用)
+
+  对象的`Symbol.unscopables`属性，指向一个对象。该对象指定了使用`with`关键字时，哪些属性会被`with`环境排除。
+
+
