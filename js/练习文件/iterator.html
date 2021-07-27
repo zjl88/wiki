@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const obj = {
+        [Symbol.iterator] : function () {
+            return {
+                next: function () {
+                    return {
+                        value: 1,
+                        done: true
+                    };
+                }
+            };
+        }
+    };
+    console.log(111);
+    for (const objKey of obj) {
+        console.log(111);
+        console.log(objKey);
+    }
+
+</script>
+</body>
+</html>

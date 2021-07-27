@@ -47,10 +47,22 @@ git checkout <commitId> -- <filename>
 #-p参数表示进入交互模式，只恢复部分变化。（暂时不理解）
 git checkout -p
 
+#### 删除分支
+
+git branch -d <branchname>删除本地分支
+
+git push origin --delete <branchname>删除远程分支
+
 
 #### 切换到某个tag
 #切换到1.1.4标签，前提是本地不能有1.1.4的分支
 git checkout tags/1.1.4 或 git checkout 1.1.4
+
+#### 删除tag
+
+git tag -d <tagname>删除本地tag
+
+git push origin :refs/tags/<tagname>删除远程tag
 
 #### 用于生成一个新分支,并切换到该分支
 git checkout -b <newname>
